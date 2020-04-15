@@ -69,6 +69,6 @@
   handlers: 
   - name: restart httpd
     service: 
-      name: nagios-agent 
+      name: httpd 
       state: restarted
       enabled: true
