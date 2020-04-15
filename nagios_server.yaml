@@ -1,23 +1,24 @@
- - name: Playbook for configuring nagios server including clients and client services monitoring
-     hosts: localhost
-     remote_user: root
+---
+- name: Playbook for configuring nagios server including clients and client services monitoring
+  hosts: localhost
+  remote_user: root
 
-    vars:
-      nagiosadmin_password: nagiosadmin
-      nagios_client_details:
-        - { address: 172.31.16.155, services: [ "ping", "ssh" ] }  
+  vars:
+    nagiosadmin_password: nagiosadmin
+    nagios_client_details:
+      - { address: 172.31.16.155, services: [ "ping", "ssh" ] }  
          
-    tasks:
-    - name: Install epel-release repository
-      yum: name=epel-release state=present
+  tasks:
+  - name: Install epel-release repository
+    yum: name=epel-release state=present
     
-    - name: Install nagios, nagios-plugins-all and nrpe packages
-      yum: name={{item}} state=present
-      with_items:
-      - nagios
-      - nagios-plugins-all
-      - nrpe 
-      - nagios-plugins-nrpe
+  - name: Install nagios, nagios-plugins-all and nrpe packages
+    yum: name={{item}} state=present
+    with_items:
+    - nagios
+    - nagios-plugins-all
+    - nrpe 
+    - nagios-plugins-nrpe
 
    ## - name: Configure desried email ID in contacts
    ##   lineinfile: 
@@ -25,11 +26,11 @@
    ##     regexp: email
    ##     line: email {{nagios_alert_email_id}} 
 
-    - name: Copy commands.cfg file with check_nrpe command
-      copy: src=commands.cfg dest=/etc/nagios/objects/commands.cfg owner=nagios group=nagios mode=755
+  - name: Copy commands.cfg file with check_nrpe command
+    copy: src=commands.cfg dest=/etc/nagios/objects/commands.cfg owner=nagios group=nagios mode=755
 
-    - name: Create nagiosadmin user for httpd access
-      shell: htpasswd -cb /etc/nagios/passwd nagiosadmin {{nagiosadmin_password}}
+  - name: Create nagiosadmin user for httpd access
+    shell: htpasswd -cb /etc/nagios/passwd nagiosadmin {{nagiosadmin_password}}
 
     - name: Make sure httpd is installed
       yum: name=httpd state=present
