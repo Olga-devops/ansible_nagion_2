@@ -1,10 +1,10 @@
 ---
   - name: Playbook for configuring nagios client(s)
-    hosts: nagios-client
+    hosts: all
     remote_user: root
     
     vars:
-      nagios_server: 192.168.<yambe:breadcrumb self="CentOS 7.x nagios server and client configuration ansible playbook">CentOS 7.x nagios|CentOS 7.x nagios</yambe:breadcrumb>122.147
+      nagios_server: 172.31.30.206 
 
     tasks:
     - name: Install epel-release repository
