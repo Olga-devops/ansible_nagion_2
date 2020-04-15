@@ -56,5 +56,5 @@
   - name: Configure server to monitor clients
     template: src=nagios-clients.j2 dest=/etc/nagios/servers/clients.conf owner=nagios group=nagios mode=755
 
-    - name: Restart nagios on server to use new configuration
-      service: name=nagios state=restarted   
+  - name: Restart nagios on server to use new configuration
+    service: name=nagios state=restarted   
