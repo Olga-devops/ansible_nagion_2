@@ -20,7 +20,7 @@
     with_items:
     - nagios
     - nagios-plugins-all
-    - nrpe 
+    #- nrpe 
     - nagios-plugins-nrpe
 
    ## - name: Configure desried email ID in contacts
