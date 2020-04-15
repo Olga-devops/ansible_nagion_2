@@ -1,9 +1,7 @@
 ---
 - name: Playbook for configuring nagios server including clients and client services monitoring
   hosts: localhost
-  #remote_user: root
-  become: true
-  become_method: sudo
+  remote_user: root
   ignore_errors: true
 
   vars:
