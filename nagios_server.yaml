@@ -1,6 +1,6 @@
  - name: Playbook for configuring nagios server including clients and client services monitoring
-    hosts: 3.101.60.172
-    remote_user: ansible
+    hosts: localhost
+    remote_user: root
 
     vars:
       nagiosadmin_password: nagiosadmin
