@@ -19,6 +19,13 @@
     yum: pkg={{ item }} state=present
     with_items:
     - nagios
+    - nagios-plugins
+    - nagios-plugins-nrpe
+    - nagios-plugins-ping
+    - nagios-plugins-ssh
+    - nagios-plugins-http
+    - nagios-plugins-mysql
+    - nagios-devel
 
     notify: restart httpd
 
