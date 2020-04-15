@@ -1,5 +1,5 @@
  - name: Playbook for configuring nagios server including clients and client services monitoring
-    hosts: all
+    hosts: 3.101.60.172
     remote_user: ansible
 
     vars:
