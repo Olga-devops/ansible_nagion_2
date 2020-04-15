@@ -1,5 +1,5 @@
  - name: Playbook for configuring nagios server including clients and client services monitoring
-    hosts: localhost
+    hosts: all
     remote_user: ansible
 
     vars:
